@@ -46,7 +46,10 @@ export default function LoginForm() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 my-10">
         {/* Email */}
         <div>
-          <Label htmlFor="email" className="text-base md:text-lg text-[#212337]">
+          <Label
+            htmlFor="email"
+            className="text-base md:text-lg text-[#212337]"
+          >
             Email
           </Label>
           <Input
@@ -69,7 +72,10 @@ export default function LoginForm() {
 
         {/* Password */}
         <div>
-          <Label htmlFor="password" className="text-base md:text-lg text-[#212337]">
+          <Label
+            htmlFor="password"
+            className="text-base md:text-lg text-[#212337]"
+          >
             Password
           </Label>
           <div className="relative">
@@ -91,11 +97,17 @@ export default function LoginForm() {
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-3 top-2.5 text-gray-600 hover:text-black"
             >
-              {showPassword ? <AiFillEyeInvisible size={20} /> : <AiFillEye size={20} />}
+              {showPassword ? (
+                <AiFillEyeInvisible size={20} />
+              ) : (
+                <AiFillEye size={20} />
+              )}
             </button>
           </div>
           {errors.password && (
-            <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+            <p className="text-red-500 text-sm mt-1">
+              {errors.password.message}
+            </p>
           )}
         </div>
 
@@ -117,7 +129,10 @@ export default function LoginForm() {
 
         {/* Submit Button */}
         <div className="mt-4">
-          <Button type="submit" className="w-full bg-[#FF6A1A] hover:bg-orange-600">
+          <Button
+            type="submit"
+            className="w-full bg-[#FF6A1A] hover:bg-orange-600"
+          >
             Sign In
           </Button>
         </div>
@@ -131,11 +146,17 @@ export default function LoginForm() {
 
         {/* Social buttons */}
         <div className="flex gap-3 mb-6">
-          <Button variant="outline" className="w-full flex items-center justify-center gap-2">
+          <Button
+            variant="outline"
+            className="w-full flex items-center justify-center gap-2"
+          >
             <FaGoogle className="text-red-500" />
             Google
           </Button>
-          <Button variant="outline" className="w-full flex items-center justify-center gap-2">
+          <Button
+            variant="outline"
+            className="w-full flex items-center justify-center gap-2"
+          >
             <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
               <FaFacebookF className="text-white text-xs" />
             </div>
@@ -155,7 +176,9 @@ export default function LoginForm() {
               </DialogTrigger>
               <DialogContent className="max-w-md">
                 <DialogHeader>
-                  <DialogTitle className="text-center text-2xl">Sign Up</DialogTitle>
+                  <DialogTitle className="text-center text-2xl">
+                    Sign Up
+                  </DialogTitle>
                 </DialogHeader>
                 <SignupForm />
                 <DialogClose asChild></DialogClose>
