@@ -72,7 +72,7 @@ const Banner = () => {
               <div className="ml-4">
                 <div className="w-24 h-24 sm:w-28 sm:h-28 relative object-center">
                   <Image
-                    src=""
+                    src="/src/assets/friut.PNG"
                     alt="image"
                     fill
                     className="object-cover rounded-full"

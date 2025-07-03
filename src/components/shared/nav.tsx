@@ -2,13 +2,16 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Banner from '../home/Banner';
+import LoginForm from '../home/LoginForm';
+// ✅ Adjust path if needed
 
 const Nav = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const navLinks = [
     { name: 'Home', href: '/' },
@@ -19,9 +22,18 @@ const Nav = () => {
     { name: 'Cart', href: '/cart' },
   ];
 
+  // Close modal on ESC
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setShowLoginModal(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
-    <header >
-      <div className="fixed top-0 left-0 w-full z-50  text-[#262829] py-4 bg-transparent">
+    <header>
+      <div className="fixed top-0 left-0 w-full z-50 text-[#262829] py-4 bg-transparent">
         <div className="container flex justify-between items-center h-16">
           {/* Logo */}
           <div className="text-xl font-bold text-black">
@@ -34,10 +46,10 @@ const Nav = () => {
               <Link
                 key={link.href}
                 href={link.href}
-               className={`relative font-medium text-gray-700 hover:text-gray-800 transition 
-  after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 
-  after:w-0 hover:after:w-2/3 after:h-[2px] after:bg-[#759c40] after:transition-all 
-  ${pathname === link.href ? 'after:w-2/3 text-gray-800' : 'after:w-0'}`}
+                className={`relative font-medium text-gray-700 hover:text-gray-800 transition 
+                  after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 
+                  after:w-0 hover:after:w-2/3 after:h-[2px] after:bg-[#759c40] after:transition-all 
+                  ${pathname === link.href ? 'after:w-2/3 text-gray-800' : 'after:w-0'}`}
               >
                 {link.name}
               </Link>
@@ -50,19 +62,22 @@ const Nav = () => {
               <Link
                 key={link.href}
                 href={link.href}
-              className={`relative font-medium text-gray-700 hover:text-gray-800 transition 
-  after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 
-  after:w-0 hover:after:w-2/3 after:h-[2px] after:bg-[#759c40] after:transition-all 
-  ${pathname === link.href ? 'after:w-2/3 text-gray-800' : 'after:w-0'}`}
+                className={`relative font-medium text-gray-700 hover:text-gray-800 transition 
+                  after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 
+                  after:w-0 hover:after:w-2/3 after:h-[2px] after:bg-[#759c40] after:transition-all 
+                  ${pathname === link.href ? 'after:w-2/3 text-gray-800' : 'after:w-0'}`}
               >
                 {link.name}
               </Link>
             ))}
-            <Link href="/signin">
-              <button className="border border-black px-4 py-1 rounded hover:bg-gray-100 transition">
-                Sign In
-              </button>
-            </Link>
+
+            {/* Sign In Button */}
+            <button
+              onClick={() => setShowLoginModal(true)}
+              className="border border-black px-4 py-1 rounded hover:bg-gray-100 transition"
+            >
+              Sign In
+            </button>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -76,7 +91,7 @@ const Nav = () => {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white px-4 pb-4 space-y-2">
+        <div className="md:hidden bg-white px-4 pb-4 space-y-2 mt-20">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -86,22 +101,35 @@ const Nav = () => {
               {link.name}
             </Link>
           ))}
-          <Link href="/signin">
-            <button className="mt-2 w-full border border-black px-4 py-2 rounded hover:bg-gray-100 transition">
-              Sign In
-            </button>
-          </Link>
+          <button
+            onClick={() => {
+              setShowLoginModal(true);
+              setIsOpen(false); // close menu
+            }}
+            className="mt-2 w-full border border-black px-4 py-2 rounded hover:bg-gray-100 transition"
+          >
+            Sign In
+          </button>
         </div>
       )}
 
+      {/* Modal */}
+      {showLoginModal && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center px-4">
+          <div className="bg-white w-full max-w-md p-6 rounded-lg relative">
+            <button
+              onClick={() => setShowLoginModal(false)}
+              className="absolute top-2 right-3 text-gray-500 hover:text-black text-xl font-bold"
+            >
+              &times;
+            </button>
+            <LoginForm closeModal={() => setShowLoginModal(false)} />
+          </div>
+        </div>
+      )}
 
-
-
-      {/* banner */}
-      <Banner></Banner>
-
-
-
+      {/* Banner */}
+      <Banner />
     </header>
   );
 };
