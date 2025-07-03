@@ -7,7 +7,7 @@ import BannerBg from '@/assets/BannerImg.jpg'
 
 const Banner = () => {
   return (
-    <section className="pt-[120px] md:h-[600px] lg:h-[900px] container lg:px-10  mx-auto flex flex-col md:flex-row items-center justify-start space-y-8 md:space-y-0"
+    <section className="pt-[120px] md:h-[600px] lg:h-[900px] lg:px-10 px-4 mx-auto flex flex-col md:flex-row items-center justify-start space-y-8 md:space-y-0"
     style={{
         backgroundImage: `url(${BannerBg.src})`,
         backgroundSize: "cover",
@@ -86,7 +86,7 @@ const Banner = () => {
 
         {/* Download App Section */}
         <div className="pt-8 space-y-4">
-          <p className="text-sm text-gray-600 font-medium">Download App:</p>
+          <p className="text-sm text-black font-medium">Download App:</p>
           <div className="flex space-x-3">
             {/* App Store Button */}
             <button className="flex-1">
