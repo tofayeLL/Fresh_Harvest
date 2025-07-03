@@ -6,7 +6,14 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Banner from '../home/Banner';
 import LoginForm from '../home/LoginForm';
-// ✅ Adjust path if needed
+
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from '@/components/ui/dialog';
 
 const Nav = () => {
   const pathname = usePathname();
@@ -22,7 +29,7 @@ const Nav = () => {
     { name: 'Cart', href: '/cart' },
   ];
 
-  // Close modal on ESC
+  // Close modal on ESC key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setShowLoginModal(false);
@@ -113,20 +120,24 @@ const Nav = () => {
         </div>
       )}
 
-      {/* Modal */}
-      {showLoginModal && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center px-4">
-          <div className="bg-white w-full max-w-md p-6 rounded-lg relative">
-            <button
-              onClick={() => setShowLoginModal(false)}
-              className="absolute top-2 right-3 text-gray-500 hover:text-black text-xl font-bold"
-            >
-              &times;
-            </button>
-            <LoginForm closeModal={() => setShowLoginModal(false)} />
-          </div>
-        </div>
-      )}
+      {/* ShadCN Modal */}
+      <Dialog open={showLoginModal} onOpenChange={setShowLoginModal}>
+  <DialogContent className="max-w-md">
+    <DialogHeader>
+      <DialogTitle className="text-center text-2xl">Login</DialogTitle>
+    </DialogHeader>
+    <LoginForm />
+    <DialogClose asChild>
+  <button
+    className="absolute top-2 right-3 text-gray-500 hover:text-black text-xl font-bold"
+    aria-label="Close"
+  >
+    &times;
+  </button>
+</DialogClose>
+  </DialogContent>
+</Dialog>
+
 
       {/* Banner */}
       <Banner />

@@ -1,32 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
-
-
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogClose,
-} from "@/components/ui/dialog";
-
-import SignupForm from "./SignupForm"; // 
+import Link from "next/link";
 
 type FormData = {
+  fullName: string;
   email: string;
   password: string;
 };
 
-export default function LoginForm() {
+export default function SignupForm() {
   const {
     register,
     handleSubmit,
@@ -35,24 +21,45 @@ export default function LoginForm() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const router = useRouter();
 
   const onSubmit = (data: FormData) => {
-    console.log("Login Data:", data);
-    router.push("/");
+    console.log("Signup Form Data:", data);
   };
 
   return (
     <div >
-   
+  
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        {/* Full Name */}
+        <div>
+          <label htmlFor="fullName" className="text-[#212337] text-lg block mb-1">
+            Full Name
+          </label>
+          <input
+            id="fullName"
+            type="text"
+            placeholder="Enter your full name"
+            {...register("fullName", {
+              required: "Full name is required",
+              minLength: {
+                value: 3,
+                message: "Name must be at least 3 characters",
+              },
+            })}
+            className="border border-gray-300 p-2 rounded-md w-full text-[#212337] text-lg"
+          />
+          {errors.fullName && (
+            <p className="text-red-500 text-sm mt-1">{errors.fullName.message}</p>
+          )}
+        </div>
+
         {/* Email */}
         <div>
-          <Label htmlFor="email" className="text-[#212337] text-lg">
+          <label htmlFor="email" className="text-[#212337] text-lg block mb-1">
             Email
-          </Label>
-          <Input
+          </label>
+          <input
             id="email"
             type="email"
             placeholder="Enter your email"
@@ -72,11 +79,11 @@ export default function LoginForm() {
 
         {/* Password */}
         <div>
-          <Label htmlFor="password" className="text-[#212337] text-lg">
+          <label htmlFor="password" className="text-[#212337] text-lg block mb-1">
             Password
-          </Label>
+          </label>
           <div className="relative">
-            <Input
+            <input
               id="password"
               type={showPassword ? "text" : "password"}
               placeholder="Enter your password"
@@ -102,7 +109,7 @@ export default function LoginForm() {
           )}
         </div>
 
-        {/* Remember Me + Forgot Password */}
+        {/* Remember Me */}
         <div className="flex justify-between text-sm text-gray-600">
           <label className="flex items-center gap-2">
             <input
@@ -119,56 +126,42 @@ export default function LoginForm() {
         </div>
 
         {/* Submit Button */}
-        <div className="mt-4">
-          <Button
-            type="submit"
-            className="w-full bg-[#FF6A1A] text-white py-2 rounded-md hover:bg-orange-600"
-          >
-            Sign In
-          </Button>
-        </div>
+        <button
+          type="submit"
+          className="w-full bg-[#FF6A1A] text-white py-2 rounded-md hover:bg-orange-600"
+        >
+          Sign Up
+        </button>
 
-        {/* Divider with text */}
+        {/* Divider */}
         <div className="flex items-center my-4">
           <div className="flex-1 border-t border-gray-300" />
-          <span className="px-4 text-gray-600 text-sm">Or Sign in with</span>
+          <span className="px-4 text-gray-600 text-sm whitespace-nowrap">Or sign up with</span>
           <div className="flex-1 border-t border-gray-300" />
         </div>
 
-        {/* Social buttons */}
+        {/* Social Login Buttons */}
         <div className="flex gap-3 mb-6">
-          <Button variant="outline" className="w-full flex items-center justify-center gap-2">
-            <FaGoogle className="text-red-500" />
-            Google
-          </Button>
-          <Button variant="outline" className="w-full flex items-center justify-center gap-2">
+          <button className="flex-1 flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
+            <FaGoogle className="text-red-500 text-lg" />
+            <span className="text-gray-700 font-medium">Google</span>
+          </button>
+
+          <button className="flex-1 flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition">
             <div className="w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
               <FaFacebookF className="text-white text-xs" />
             </div>
-            Facebook
-          </Button>
+            <span className="text-gray-700 font-medium">Facebook</span>
+          </button>
         </div>
 
-        {/* Sign up link → opens modal */}
+        {/* Link to login */}
         <div className="text-center">
           <p className="text-gray-600 text-sm">
-            Don’t have an account?{" "}
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="text-orange-500 hover:text-orange-600 font-medium">
-                  Sign up
-                </button>
-              </DialogTrigger>
-              <DialogContent className="max-w-md">
-                <DialogHeader>
-                  <DialogTitle className="text-center text-2xl">Sign Up</DialogTitle>
-                </DialogHeader>
-                <SignupForm />
-                <DialogClose asChild>
-              
-                </DialogClose>
-              </DialogContent>
-            </Dialog>
+            Already have an account?{" "}
+            <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium">
+              Log in
+            </Link>
           </p>
         </div>
       </form>

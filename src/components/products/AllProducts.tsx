@@ -98,6 +98,8 @@ const AllProducts = () => {
           See All Products
         </button>
       </div>
+
+      
     </div>
   );
 };

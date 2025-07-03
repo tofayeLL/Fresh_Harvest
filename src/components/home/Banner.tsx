@@ -72,10 +72,10 @@ const Banner = () => {
               <div className="ml-4">
                 <div className="w-24 h-24 sm:w-28 sm:h-28 relative object-center">
                   <Image
-                    src="/src/assets/friut.PNG"
+                    src="/guava.PNG"
                     alt="image"
                     fill
-                    className="object-cover rounded-full"
+                    className="object-cover rounded-full object-center"
                   />
                 </div>
               </div>
