@@ -66,7 +66,7 @@ const AllProducts = () => {
     <div>
       {/* cards */}
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-16">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
         {products.map((product) => (
           <div
             key={product.id}
