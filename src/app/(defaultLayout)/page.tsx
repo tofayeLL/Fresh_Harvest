@@ -1,6 +1,7 @@
 "use client";
 
 import AboutUs from "@/components/home/aboutUs";
+import Banner from "@/components/home/Banner";
 import HervastBlog from "@/components/home/HervastBlog";
 import OurProducts from "@/components/home/ourProducts";
 import Testimonial from "@/components/home/testimonial";
@@ -40,6 +41,9 @@ export default function FreshHarvestWebsite() {
 
   return (
     <div className="min-h-screen bg-white">
+ <Banner></Banner>
+
+
       {/* Our  Products Section */}
       <OurProducts></OurProducts>
 

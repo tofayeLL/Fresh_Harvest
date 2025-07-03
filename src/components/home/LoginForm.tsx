@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
 
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -19,7 +18,7 @@ import {
   DialogClose,
 } from "@/components/ui/dialog";
 
-import SignupForm from "./SignupForm"; // 
+import SignupForm from "./SignupForm";
 
 type FormData = {
   email: string;
@@ -43,13 +42,11 @@ export default function LoginForm() {
   };
 
   return (
-    <div >
-   
-
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <div className="w-full max-w-md mx-auto px-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 my-10">
         {/* Email */}
         <div>
-          <Label htmlFor="email" className="text-[#212337] text-lg">
+          <Label htmlFor="email" className="text-base md:text-lg text-[#212337]">
             Email
           </Label>
           <Input
@@ -63,7 +60,7 @@ export default function LoginForm() {
                 message: "Enter a valid email",
               },
             })}
-            className="border border-gray-300 p-2 rounded-md w-full text-[#212337] text-lg"
+            className="w-full text-sm md:text-base"
           />
           {errors.email && (
             <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -72,7 +69,7 @@ export default function LoginForm() {
 
         {/* Password */}
         <div>
-          <Label htmlFor="password" className="text-[#212337] text-lg">
+          <Label htmlFor="password" className="text-base md:text-lg text-[#212337]">
             Password
           </Label>
           <div className="relative">
@@ -87,12 +84,12 @@ export default function LoginForm() {
                   message: "Password must be at least 6 characters",
                 },
               })}
-              className="border border-gray-300 p-2 rounded-md w-full text-[#212337] text-lg pr-10"
+              className="w-full pr-10 text-sm md:text-base"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-3 text-gray-600 hover:text-black"
+              className="absolute right-3 top-2.5 text-gray-600 hover:text-black"
             >
               {showPassword ? <AiFillEyeInvisible size={20} /> : <AiFillEye size={20} />}
             </button>
@@ -120,10 +117,7 @@ export default function LoginForm() {
 
         {/* Submit Button */}
         <div className="mt-4">
-          <Button
-            type="submit"
-            className="w-full bg-[#FF6A1A] text-white py-2 rounded-md hover:bg-orange-600"
-          >
+          <Button type="submit" className="w-full bg-[#FF6A1A] hover:bg-orange-600">
             Sign In
           </Button>
         </div>
@@ -149,7 +143,7 @@ export default function LoginForm() {
           </Button>
         </div>
 
-        {/* Sign up link → opens modal */}
+        {/* Sign up link */}
         <div className="text-center">
           <p className="text-gray-600 text-sm">
             Don’t have an account?{" "}
@@ -164,9 +158,7 @@ export default function LoginForm() {
                   <DialogTitle className="text-center text-2xl">Sign Up</DialogTitle>
                 </DialogHeader>
                 <SignupForm />
-                <DialogClose asChild>
-              
-                </DialogClose>
+                <DialogClose asChild></DialogClose>
               </DialogContent>
             </Dialog>
           </p>

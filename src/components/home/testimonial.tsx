@@ -36,7 +36,7 @@ export default function TestimonialsSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <p className="inline-block text-sm font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
+          <p className="inline-block text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
             Testimonial
           </p>
           <h2 className="text-lg lg:text-4xl font-bold text-gray-900 mb-4">

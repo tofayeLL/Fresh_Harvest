@@ -7,7 +7,7 @@ export default function OurProducts() {
       {/* header */}
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <p className="inline-block text-sm font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
+          <p className="inline-block text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
             Our Products
           </p>
           <h2 className="lg:text-4xl text-lg font-bold text-gray-900 mb-4">

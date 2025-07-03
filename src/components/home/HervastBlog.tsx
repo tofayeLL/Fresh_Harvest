@@ -32,7 +32,7 @@ export default function HervastBlog() {
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-12 relative">
-          <p className="inline-block text-sm font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
+          <p className="inline-block text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
             Our Blogs
           </p>
           <h1 className="text-lg md:text-4xl font-bold text-gray-900 mb-4">
