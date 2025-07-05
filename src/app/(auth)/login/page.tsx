@@ -6,7 +6,7 @@ const page = () => {
     return (
         <section>
        
-            <LoginForm></LoginForm>
+            <LoginForm switchToSignup={() => { }} />
             
         </section>
     );

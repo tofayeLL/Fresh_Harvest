@@ -25,7 +25,10 @@ type FormData = {
   password: string;
 };
 
-export default function LoginForm() {
+type Props = {
+  switchToSignup: () => void;
+};
+export default function LoginForm({ switchToSignup }: Props) {
   const {
     register,
     handleSubmit,
@@ -133,7 +136,7 @@ export default function LoginForm() {
             type="submit"
             className="w-full bg-[#FF6A1A] hover:bg-orange-600"
           >
-            Sign In
+            Log In
           </Button>
         </div>
 
@@ -170,9 +173,18 @@ export default function LoginForm() {
             Don’t have an account?{" "}
             <Dialog>
               <DialogTrigger asChild>
-                <button className="text-orange-500 hover:text-orange-600 font-medium">
-                  Sign up
-                </button>
+                <div className="text-center mt-4">
+                  <p className="text-sm text-gray-600">
+                    Don’t have an account?{" "}
+                    <button
+                      type="button"
+                      onClick={switchToSignup}
+                      className="text-orange-500 hover:text-orange-600 font-medium"
+                    >
+                      Sign up
+                    </button>
+                  </p>
+                </div>
               </DialogTrigger>
               <DialogContent className="max-w-md">
                 <DialogHeader>
@@ -180,7 +192,7 @@ export default function LoginForm() {
                     Sign Up
                   </DialogTitle>
                 </DialogHeader>
-                <SignupForm />
+                <SignupForm switchToLogin={switchToSignup} />
                 <DialogClose asChild></DialogClose>
               </DialogContent>
             </Dialog>

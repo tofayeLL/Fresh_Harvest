@@ -4,15 +4,18 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaGoogle, FaFacebookF } from "react-icons/fa";
-import Link from "next/link";
+
 
 type FormData = {
   fullName: string;
   email: string;
   password: string;
 };
+type Props = {
+  switchToLogin: () => void;
+};
 
-export default function SignupForm() {
+export default function SignupForm({ switchToLogin }: Props) {
   const {
     register,
     handleSubmit,
@@ -27,10 +30,10 @@ export default function SignupForm() {
   };
 
   return (
-    <div >
+    <div className="">
   
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 ">
         {/* Full Name */}
         <div>
           <label htmlFor="fullName" className="text-[#212337] text-lg block mb-1">
@@ -156,14 +159,19 @@ export default function SignupForm() {
         </div>
 
         {/* Link to login */}
-        <div className="text-center">
-          <p className="text-gray-600 text-sm">
-            Already have an account?{" "}
-            <Link href="#" className="text-orange-500 hover:text-orange-600 font-medium">
-              Log in
-            </Link>
-          </p>
-        </div>
+       {/* Your signup form */}
+      <div className="text-center mt-4">
+        <p className="text-sm text-gray-600">
+          Already have an account?{" "}
+          <button
+            type="button"
+            onClick={switchToLogin}
+            className="text-orange-500 hover:text-orange-600 font-medium"
+          >
+            Sign in
+          </button>
+        </p>
+      </div>
       </form>
     </div>
   );
