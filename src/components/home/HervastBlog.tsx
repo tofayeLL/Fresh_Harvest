@@ -58,10 +58,14 @@ export default function HervastBlog() {
                   alt={post.title}
                   width={500}
                   height={500}
-                  className="object-cover w-[388px] h-[260px] rounded-lg"
+                  className="object-cover w-[500px] h-[260px] rounded-lg"
                 />
               </div>
-              <div className="p-6">
+             
+            </article>
+          ))}
+          {blogPosts.map((post) => (
+            <div className="" key={post.id}>
                 <time className="text-sm text-gray-500 font-medium">
                   {post.date}
                 </time>
@@ -79,8 +83,8 @@ export default function HervastBlog() {
                   </button>
                 </Link>
               </div>
-            </article>
           ))}
+           
         </div>
       </div>
     </section>
