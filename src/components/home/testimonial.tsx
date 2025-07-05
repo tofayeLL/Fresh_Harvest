@@ -49,10 +49,10 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Testimonial Card */}
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-6 mb-6">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-14 mb-6">
           {/* Profile Image */}
           <div className="flex-shrink-0">
-            <div className="w-48 h-48 lg:w-56 lg:h-86 rounded-full overflow-hidden border-4 border-white shadow-lg">
+            <div className="w-48 h-48 lg:w-64 lg:h-86 rounded-full overflow-hidden border-4 border-white shadow-lg">
               <Image
                 src={testimonials[activeIndex].image || "/placeholder.svg"}
                 alt={testimonials[activeIndex].name}
@@ -64,10 +64,10 @@ export default function TestimonialsSection() {
           </div>
 
           {/* Testimonial Content */}
-          <div className="flex-1 max-w-2xl">
-            <div className="bg-gray-50 rounded-2xl p-8 lg:p-8 relative min-h-[280px] flex flex-col justify-between">
-              <div className="flex-1 flex flex-col justify-center">
-                <blockquote className="text-gray-700 text-lg leading-relaxed mb-6 line-clamp-6">
+          <div className="flex-1 max-w-2xl  ">
+            <div className="bg-gray-200 rounded-2xl relative  flex flex-col justify-center item-start lg:p-4 p-4">
+              <div className="flex-1 flex flex-col justify-center ">
+                <blockquote className="text-gray-700 text-lg leading-relaxed ">
                   {testimonials[activeIndex].text}
                 </blockquote>
               </div>

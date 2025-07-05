@@ -42,7 +42,7 @@ const AllProducts = () => {
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
                 {product.name}
               </h3>
-              <p className="text-gray-400 mb-4">{product.price}</p>
+              <p className="text-gray-600 mb-4">{product.price}</p>
               <button className="w-full border text-md border-gray-200 text-gray-800 hover:bg-orange-500 hover:text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200">
                 Add to cart
               </button>
