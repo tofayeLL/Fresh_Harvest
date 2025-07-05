@@ -54,8 +54,8 @@ const Nav = () => {
 
   return (
     <header>
-      <div className="fixed top-0 left-0 w-full z-50 text-[#262829] py-2   bg-[#fcfcf2]">
-        <div className="flex justify-between items-center h-16 px-4">
+      <div className="fixed top-0 left-0 w-full z-50 text-[#262829] py-2   bg-[#fcfcf2] lg:px-10">
+        <div className="flex justify-between items-center h-16 px-4 ">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <Leaf className="w-6 h-6 text-green-600" />

@@ -7,7 +7,7 @@ import BannerBg from '@/assets/BannerImg.jpg'
 
 const Banner = () => {
   return (
-    <section className="pt-[120px] md:h-[600px] lg:h-[900px] lg:px-10 px-10 mx-auto flex flex-col md:flex-row items-center justify-start space-y-8 md:space-y-0"
+    <section className="pt-[120px] md:h-[600px] lg:h-[900px] px-10  mx-auto flex flex-col md:flex-row items-center justify-start space-y-8 md:space-y-0"
     style={{
         backgroundImage: `url(${BannerBg.src})`,
         backgroundSize: "cover",
@@ -62,19 +62,19 @@ const Banner = () => {
             <div className="flex items-center w-[80%] lg:h-[80%] h-[24vh]  bg-gray-200 border border-gray-300 shadow-2xl rounded-2xl p-4 ">
               <div className="w-[50%]  flex flex-col justify-start items-start ">
                 <p className="text-sm text-[#176e38] font-semibold mb-1">Special Offer</p>
-                <h3 className="text-xl lg:text-3xl font-bold text-gray-900 mb-1">Fresh Salad</h3>
-                <p className="text-lg font-semibold text-gray-700 mb-4">
-                 <span className="text-[#176e38]"> Up to</span> <span className="text-2xl font-bold">70%</span> off
+                <h3 className="text-md lg:text-3xl font-bold text-gray-900 mb-1">Fresh Salad</h3>
+                <p className="lg:text-lg text-sm font-semibold text-gray-700 lg:mb-4 mb-1">
+                 <span className="text-[#176e38]"> Up to</span> <span className="lg:text-2xl  text-xl font-bold">70%</span> off
                 </p>
                 <Button
-                  className="bg-[#176e38] text-white font-semibold px-4 py-2 rounded-lg text-sm"
+                  className="bg-[#176e38] text-white font-semibold px-4 lg:py-2  rounded-lg lg:text-sm text-xs"
                   size="sm"
                 >
                   CODE: FRESH25
                 </Button>
               </div>
               <div className="ml-4 w-[50%]  flex justify-center items-center  ">
-                <div className="h-40 w-40 relative object-center">
+                <div className="lg:h-40 lg:w-40 h-30 w-30 relative object-center">
                   <Image
                     src="/guava.PNG"
                     alt="image"

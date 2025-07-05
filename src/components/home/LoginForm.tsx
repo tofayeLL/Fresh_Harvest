@@ -150,7 +150,7 @@ export default function LoginForm() {
             variant="outline"
             className="w-full flex items-center justify-center gap-2"
           >
-            <FaGoogle className="text-red-500" />
+            <FaGoogle className="text-green-500" />
             Google
           </Button>
           <Button
