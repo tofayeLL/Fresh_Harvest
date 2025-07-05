@@ -39,7 +39,7 @@ const AllProducts = () => {
                   className="w-full object-cover rounded-lg"
                 />
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              <h3 className="lg:text-lg font-semibold text-gray-900 mb-2">
                 {product.name}
               </h3>
               <p className="text-gray-600 mb-4">{product.price}</p>
@@ -52,7 +52,7 @@ const AllProducts = () => {
       </div>
 
       {/* see all products button */}
-      <div className="pt-8 flex flex-col justify-center items-center">
+      <div className="lg:pt-8 flex flex-col justify-center items-center">
         <button className="border lg:text-xl text-sm border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white font-bold py-2 px-4 rounded-lg transition-colors duration-200 cursor-pointer">
           See All Products
         </button>

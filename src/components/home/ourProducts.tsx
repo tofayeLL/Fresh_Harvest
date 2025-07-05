@@ -7,13 +7,13 @@ export default function OurProducts() {
       {/* header */}
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <p className="inline-block text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
+          <p className="inline-block lg:text-xl text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
             Our Products
           </p>
-          <h2 className="lg:text-4xl text-lg font-bold text-gray-900 mb-4">
+          <h2 className="lg:text-5xl text-4xl font-bold text-gray-900 mb-4">
             Our Fresh Products
           </h2>
-          <p className="text-gray-600 max-w-xl mx-auto lg:text-base text-xs">
+          <p className="text-gray-600 max-w-xl  mx-auto lg:text-base text-xs">
             We pride ourselves on offering a wide variety of fresh and flavorful
             fruits, vegetables, and salad ingredients.
           </p>
@@ -23,7 +23,7 @@ export default function OurProducts() {
           <Tabs defaultValue="all" className="w-full">
             {/* Tab List Container with flex justify-between */}
             <div className="flex flex-col lg:flex-row justify-center items-center mb-6">
-              <TabsList className="w-full lg:flex lg:items-center grid grid-cols-2 lg:gap-4 gap-3 rounded-lg max-w-md bg-white">
+              <TabsList className="w-full lg:flex lg:items-center grid grid-cols-4 lg:gap-4 gap-3 rounded-lg max-w-md bg-white">
                 <TabsTrigger
                   value="all"
                   className="data-[state=active]:bg-[#749b3f] data-[state=active]:text-white text-[#333333] cursor-pointer border border-gray-200 rounded-lg py-[18px]"

@@ -28,17 +28,17 @@ export default function HervastBlog() {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gray-50">
+    <section className="py-16 px-4 ">
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-12 relative">
-          <p className="inline-block text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
+          <p className="inline-block lg:text-xl text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
             Our Blogs
           </p>
-          <h1 className="text-xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="lg:text-5xl text-4xl font-bold text-gray-900 mb-4">
             Fresh Harvest Blog
           </h1>
-          <p className="text-gray-600 text-base max-w-2xl mx-auto">
+          <p className="text-gray-600 text-base max-w-xl mx-auto">
             Welcome to the Fresh Harvest Blog, your go-to resource for all
             things related to fresh produce, healthy eating, and culinary
             inspiration.
@@ -46,7 +46,7 @@ export default function HervastBlog() {
         </div>
 
         {/* Blog Posts Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 lg:gap-10 gap-8">
           {blogPosts.map((post) => (
             <article
               key={post.id}
@@ -65,7 +65,7 @@ export default function HervastBlog() {
                 <time className="sm:text-sm lg:text-lg text-gray-500 font-medium">
                   {post.date}
                 </time>
-                <h2 className="text-xl font-bold text-gray-900 mt-2 mb-4 leading-tight">
+                <h2 className="text-lg font-bold text-gray-900 mt-2 mb-4 leading-tight">
                   {post.title}
                 </h2>
                 <Link

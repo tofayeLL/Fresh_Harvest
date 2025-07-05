@@ -35,24 +35,24 @@ export default function TestimonialsSection() {
     <section className="py-16 lg:py-24 bg-white relative overflow-hidden min-h-[600px] flex items-center justify-center mx-auto">
       <div className=" px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="inline-block text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
+        <div className="text-center lg:mb-16 mb-8">
+          <p className="inline-block lg:text-xl text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
             Testimonial
           </p>
-          <h2 className="text-lg lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className=" lg:text-5xl text-4xl font-bold text-gray-900 mb-4 lg:px-0 px-14">
             What Our Customers Say
           </h2>
-          <p className="text-gray-600 max-w-lg mx-auto leading-relaxed">
+          <p className="text-gray-600 max-w-lg mx-auto leading-relaxed lg:text-lg text-md">
             Do not just take our word for it—see what some of our customers have
             to say about their experience with Fresh Harvest.
           </p>
         </div>
 
         {/* Testimonial Card */}
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-14 mb-6">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-14 mb-6 ">
           {/* Profile Image */}
-          <div className="flex-shrink-0">
-            <div className="w-48 h-48 lg:w-64 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-lg">
+          <div className="flex-shrink-0 ">
+            <div className="w-56 h-72 lg:w-64 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-lg">
               <Image
                 src={testimonials[activeIndex].image || "/placeholder.svg"}
                 alt={testimonials[activeIndex].name}
@@ -68,15 +68,15 @@ export default function TestimonialsSection() {
             <div className="bg-gray-200 rounded-2xl relative  flex flex-col justify-center item-start lg:p-8 p-4">
               <div className="flex-1 flex flex-col justify-center ">
                 <blockquote className="text-gray-700 text-lg leading-relaxed ">
-                  {testimonials[activeIndex].text}
+                  &quot;{testimonials[activeIndex].text}&quot;
                 </blockquote>
               </div>
 
-              <div className="mt-4 ">
+              <div className="mt-6 flex justify-start items-center ">
                 <h4 className="font-bold text-gray-900 text-lg">
-                  {testimonials[activeIndex].name}
+                  {testimonials[activeIndex].name} -
                 </h4>
-                <p className="text-gray-600">
+                <p className="text-gray-600 pl-1">
                   {testimonials[activeIndex].role}
                 </p>
               </div>

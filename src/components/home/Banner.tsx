@@ -7,7 +7,7 @@ import BannerBg from '@/assets/BannerImg.jpg'
 
 const Banner = () => {
   return (
-    <section className="pt-[120px] md:h-[600px] lg:h-[900px] lg:px-10 px-4 mx-auto flex flex-col md:flex-row items-center justify-start space-y-8 md:space-y-0"
+    <section className="pt-[120px] md:h-[600px] lg:h-[900px] lg:px-10 px-10 mx-auto flex flex-col md:flex-row items-center justify-start space-y-8 md:space-y-0"
     style={{
         backgroundImage: `url(${BannerBg.src})`,
         backgroundSize: "cover",
@@ -19,7 +19,7 @@ const Banner = () => {
       <div className="mx-auto max-w-lg space-y-3">
         {/* Header */}
         <div className="text-start">
-         <p className="inline-block text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
+         <p className="inline-block lg:text-xl text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
            Welcome to Fresh Harvest
           </p>
         </div>

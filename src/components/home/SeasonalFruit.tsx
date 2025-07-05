@@ -42,23 +42,23 @@ const SeasonalFruit = () => {
 
     return (
         <section>
-             <div className="py-16  lg:text-start text-center  bg-gray-50">
+             <div className="py-28  lg:text-start text-center  bg-gray-50">
                     <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                       <div>
-                        <p className="inline-block lg:text-xl text-sm font-medium mb-2 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded">
+                        <p className="inline-block lg:text-xl text-md font-medium  mb-3 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded">
                           Special Offer
                         </p>
-                        <h2 className="text-5xl  font-bold text-gray-900 mb-4">
+                        <h2 className="lg:text-6xl text-5xl  font-bold text-gray-900 mb-4">
                           Seasonal Fruit Bundle
                         </h2>
-                        <p className="text-3xl font-bold text-orange-500 mb-8">
-                          <span className="text-gray-800">Discount up to</span> <span className="text-3xl">80% OFF</span>
+                        <p className="text-4xl font-bold text-orange-500 mb-8 lg:px-0 px-16">
+                          <span className="text-gray-800">Discount up to</span> <span className="text-4xl">80% OFF</span>
                         </p>
                         <div className="flex space-x-6 mb-8">
                           {Object.entries(timeLeft).map(([unit, val]) => (
                             <div key={unit} className="text-center">
                               <div className="bg-white rounded-lg p-4 shadow-lg min-w-[80px] min-h-[80px]">
-                                <div className="lg:text-3xl font-bold text-gray-900">
+                                <div className="lg:text-3xl text-2xl font-bold text-gray-900">
                                   {val.toString().padStart(2, "0")}
                                 </div>
                                 <p className="text-sm text-gray-600 mt-2 capitalize">
@@ -68,7 +68,7 @@ const SeasonalFruit = () => {
                             </div>
                           ))}
                         </div>
-                        <button className="bg-[#176e38]  text-white font-semibold px-6 py-3 rounded-full">
+                        <button className="bg-[#176e38] text-xl  text-white font-semibold px-6 py-3 rounded-full">
                           CODE: <span className='text-[#fac814]'>FRESH25</span>
                         </button>
                       </div>
