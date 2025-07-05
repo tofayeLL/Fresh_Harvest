@@ -50,9 +50,9 @@ export default function HervastBlog() {
           {blogPosts.map((post) => (
             <article
               key={post.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+              
             >
-              <div className="">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                 <Image
                   src={post.image || "/placeholder.svg"}
                   alt={post.title}
@@ -61,12 +61,8 @@ export default function HervastBlog() {
                   className="object-cover w-[500px] h-[260px] rounded-lg"
                 />
               </div>
-             
-            </article>
-          ))}
-          {blogPosts.map((post) => (
-            <div className="" key={post.id}>
-                <time className="text-sm text-gray-500 font-medium">
+               <div className=" mt-6">
+                <time className="sm:text-sm lg:text-lg text-gray-500 font-medium">
                   {post.date}
                 </time>
                 <h2 className="text-xl font-bold text-gray-900 mt-2 mb-4 leading-tight">
@@ -83,7 +79,10 @@ export default function HervastBlog() {
                   </button>
                 </Link>
               </div>
+             
+            </article>
           ))}
+       
            
         </div>
       </div>
