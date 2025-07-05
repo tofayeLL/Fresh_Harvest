@@ -35,7 +35,7 @@ export default function HervastBlog() {
           <p className="inline-block text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
             Our Blogs
           </p>
-          <h1 className="text-lg md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-xl md:text-5xl font-bold text-gray-900 mb-4">
             Fresh Harvest Blog
           </h1>
           <p className="text-gray-600 text-base max-w-2xl mx-auto">

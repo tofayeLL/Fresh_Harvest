@@ -58,7 +58,7 @@ const Nav = () => {
             <Leaf className="w-6 h-6 text-green-600" />
 
             {/* Brand Text */}
-            <div className="lg:text-3xl sm:text-md font-bold text-black">
+            <div className="lg:text-3xl text-2xl sm:text-md font-bold text-black">
               <Link href="/">Fresh Harvest</Link>
             </div>
           </div>

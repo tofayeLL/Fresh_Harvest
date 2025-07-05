@@ -42,13 +42,13 @@ const SeasonalFruit = () => {
 
     return (
         <section>
-             <div className="py-16 px-4   bg-gray-50">
+             <div className="py-16  lg:text-start text-center  bg-gray-50">
                     <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                       <div>
                         <p className="inline-block lg:text-xl text-sm font-medium mb-2 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded">
                           Special Offer
                         </p>
-                        <h2 className="lg:text-5xl text-xl font-bold text-gray-900 mb-4">
+                        <h2 className="text-5xl  font-bold text-gray-900 mb-4">
                           Seasonal Fruit Bundle
                         </h2>
                         <p className="text-3xl font-bold text-orange-500 mb-8">
