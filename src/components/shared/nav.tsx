@@ -50,7 +50,7 @@ const Nav = () => {
 
   return (
     <header>
-      <div className="fixed top-0 left-0 w-full z-50 text-[#262829] py-4 bg-transparent ">
+      <div className="fixed top-0 left-0 w-full z-50 text-[#262829] py-2 bg-[#fcfcf2] ">
         <div className="flex justify-between items-center h-16 lg:px-10 px-4">
           {/* Logo */}
           <div className="flex items-center space-x-2">

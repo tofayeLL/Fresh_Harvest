@@ -32,8 +32,8 @@ export default function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className="py-16 lg:py-24 bg-white relative overflow-hidden min-h-[600px] flex items-center">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 lg:py-24 bg-white relative overflow-hidden min-h-[600px] flex items-center justify-center mx-auto">
+      <div className=" px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
           <p className="inline-block text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
@@ -52,7 +52,7 @@ export default function TestimonialsSection() {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-14 mb-6">
           {/* Profile Image */}
           <div className="flex-shrink-0">
-            <div className="w-48 h-48 lg:w-64 lg:h-86 rounded-full overflow-hidden border-4 border-white shadow-lg">
+            <div className="w-48 h-48 lg:w-64 lg:h-96 rounded-full overflow-hidden border-4 border-white shadow-lg">
               <Image
                 src={testimonials[activeIndex].image || "/placeholder.svg"}
                 alt={testimonials[activeIndex].name}
@@ -65,14 +65,14 @@ export default function TestimonialsSection() {
 
           {/* Testimonial Content */}
           <div className="flex-1 max-w-2xl  ">
-            <div className="bg-gray-200 rounded-2xl relative  flex flex-col justify-center item-start lg:p-4 p-4">
+            <div className="bg-gray-200 rounded-2xl relative  flex flex-col justify-center item-start lg:p-8 p-4">
               <div className="flex-1 flex flex-col justify-center ">
                 <blockquote className="text-gray-700 text-lg leading-relaxed ">
                   {testimonials[activeIndex].text}
                 </blockquote>
               </div>
 
-              <div className="mt-auto">
+              <div className="mt-4 ">
                 <h4 className="font-bold text-gray-900 text-lg">
                   {testimonials[activeIndex].name}
                 </h4>

@@ -26,7 +26,7 @@ const AllProducts = () => {
   return (
     <div>
       {/* product grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-16">
         {products.map((product) => (
           <Link key={product.id} href={`/product/${product.id}`}>
             <div className="border border-gray-200 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow bg-white p-3 text-center cursor-pointer">

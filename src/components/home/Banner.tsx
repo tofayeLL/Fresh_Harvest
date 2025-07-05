@@ -30,7 +30,7 @@ const Banner = () => {
         <div className="space-y-3">
           {/* Main Heading */}
           <div>
-            <h2 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl">Fresh Fruits and Vegetables</h2>
+            <h2 className=" font-bold leading-tight text-gray-900 lg:text-5xl text-lg">Fresh Fruits and Vegetables</h2>
           </div>
 
           {/* Description */}

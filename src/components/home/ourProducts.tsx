@@ -3,9 +3,9 @@ import AllProducts from "../products/AllProducts";
 
 export default function OurProducts() {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <section className="py-16  ">
       {/* header */}
-      <div className="max-w-7xl mx-auto">
+      <div className="container mx-auto">
         <div className="text-center mb-12">
           <p className="inline-block text-md font-bold mb-4 text-[#759c40] bg-[#f2f5eb] px-4 py-1 rounded-lg">
             Our Products
