@@ -45,7 +45,7 @@ export default function LoginForm({ switchToSignup }: Props) {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto px-4">
+    <div className="w-full max-w-md mx-auto ">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 my-10">
         {/* Email */}
         <div>

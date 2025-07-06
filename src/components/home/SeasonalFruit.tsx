@@ -74,7 +74,7 @@ const SeasonalFruit = () => {
                       </div>
                       <div className="relative w-[100%] h-[100%] mx-auto">
                         <Image
-                          src="/orange.PNG"
+                          src="/orange.png"
                           alt="image"
                           fill
                           className="rounded-full object-cover"

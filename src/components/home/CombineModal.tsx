@@ -19,8 +19,8 @@ interface CombineModalProps {
 
 const CombineModal: FC<CombineModalProps> = ({ open, setOpen, authView, setAuthView }) => {
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-md">
+    <Dialog open={open} onOpenChange={setOpen} >
+      <DialogContent className="lg:max-w-md ">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl capitalize">
             {authView === "login" ? "Login" : "Sign Up"}
@@ -28,7 +28,9 @@ const CombineModal: FC<CombineModalProps> = ({ open, setOpen, authView, setAuthV
         </DialogHeader>
 
         {authView === "login" ? (
-          <LoginForm switchToSignup={() => setAuthView("signup")} />
+          
+            <LoginForm switchToSignup={() => setAuthView("signup")} />
+          
         ) : (
           <SignupForm switchToLogin={() => setAuthView("login")} />
         )}
