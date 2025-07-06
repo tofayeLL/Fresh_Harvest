@@ -94,7 +94,7 @@ const Nav = () => {
             {/* Favourites */}
             <Link
               href="/favourites"
-              className="relative font-medium text-gray-700 hover:text-gray-800 flex items-center gap-2"
+              className="relative font-medium text-gray-700 hover:text-gray-800 flex items-center gap-1"
             >
               <Heart className="w-5 h-5" />
               <span className="hidden sm:inline">Favourites</span>
@@ -106,7 +106,7 @@ const Nav = () => {
               <SheetTrigger asChild>
                 <div
                   onClick={() => setIsSheetOpen(true)}
-                  className="relative cursor-pointer text-gray-700 hover:text-gray-800 flex items-center gap-2"
+                  className="relative cursor-pointer text-gray-700 hover:text-gray-800 flex items-center gap-1"
                 >
                   <div className="relative">
                     <ShoppingCart className="w-5 h-5" />
@@ -222,92 +222,91 @@ const Nav = () => {
           </div>
 
 
-          {/* Mobile Menu */}
-          {/* Cart (mobile) */}
+
           {/* Mobile Right Menu */}
           <div className="md:hidden flex items-center space-x-4">
             {/* Cart Icon (mobile) */}
             <Sheet open={isMobileCartOpen} onOpenChange={setIsMobileCartOpen}>
-  <SheetTrigger asChild>
-    <button className="relative text-gray-700 hover:text-gray-800">
-      <ShoppingCart className="w-6 h-6" />
-      {cartCount > 0 && (
-        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
-          {cartCount}
-        </span>
-      )}
-    </button>
-  </SheetTrigger>
-  <SheetContent side="right" className="w-full sm:w-[400px] p-4 flex flex-col">
-    <h2 className="text-xl font-semibold mb-4 border-b pb-2">Your Cart</h2>
-    {cartItems.length === 0 ? (
-      <p className="text-gray-600 mt-8 text-center">Your cart is empty.</p>
-    ) : (
-      <div className="flex-1 overflow-y-auto space-y-4">
-        {cartItems.map((item) => {
-          const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
-          const total = price * item.quantity;
-          return (
-            <div key={item.id} className="flex items-center gap-3 border rounded-lg p-3">
-              <Image
-                src={typeof item.image === "string" ? item.image : (item.image as StaticImageData)}
-                alt={item.name}
-                width={60}
-                height={60}
-                className="rounded-lg object-cover border"
-              />
-              <div className="flex-1">
-                <p className="font-medium text-sm truncate">{item.name}</p>
-                <p className="text-xs text-gray-500 mb-2">Unit Price: ${price.toFixed(2)}</p>
-                <div className="flex items-center gap-2">
-                  <button onClick={() => dispatch(decrementQty(item.id))} className="border rounded w-6 h-6 flex items-center justify-center hover:bg-gray-100">
-                    <Minus className="w-4 h-4" />
-                  </button>
-                  <span className="text-sm font-medium">{item.quantity}</span>
-                  <button onClick={() => dispatch(incrementQty(item.id))} className="border rounded w-6 h-6 flex items-center justify-center hover:bg-gray-100">
-                    <Plus className="w-4 h-4" />
-                  </button>
-                </div>
-              </div>
-              <div className="flex flex-col items-end justify-between gap-2">
-                <div className="text-sm font-semibold text-gray-700 whitespace-nowrap">${total.toFixed(2)}</div>
-                <button onClick={() => dispatch(removeFromCart(item.id))} className="text-red-500 hover:text-red-600 transition text-xs flex items-center gap-1">
-                  <Trash2 className="w-4 h-4" />
-                  Remove
+              <SheetTrigger asChild>
+                <button className="relative text-gray-700 hover:text-gray-800">
+                  <ShoppingCart className="w-6 h-6" />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
+                      {cartCount}
+                    </span>
+                  )}
                 </button>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    )}
-    {cartItems.length > 0 && (
-      <>
-        <div className="mt-4 flex justify-between items-center text-base font-semibold border-t pt-4">
-          <span>Subtotal:</span>
-          <span>
-            $
-            {cartItems
-              .reduce((sum, item) => {
-                const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
-                return sum + price * item.quantity;
-              }, 0)
-              .toFixed(2)}
-          </span>
-        </div>
-        <button
-          onClick={() => {
-            setIsMobileCartOpen(false); // 👈 Close drawer first
-            setTimeout(() => router.push("/cart"), 300); // 👈 Delay navigation slightly
-          }}
-          className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 rounded-md transition"
-        >
-          Go to Cart
-        </button>
-      </>
-    )}
-  </SheetContent>
-</Sheet>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-full sm:w-[400px] p-4 flex flex-col">
+                <h2 className="text-xl font-semibold mb-4 border-b pb-2">Your Cart</h2>
+                {cartItems.length === 0 ? (
+                  <p className="text-gray-600 mt-8 text-center">Your cart is empty.</p>
+                ) : (
+                  <div className="flex-1 overflow-y-auto space-y-4">
+                    {cartItems.map((item) => {
+                      const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
+                      const total = price * item.quantity;
+                      return (
+                        <div key={item.id} className="flex items-center gap-3 border rounded-lg p-3">
+                          <Image
+                            src={typeof item.image === "string" ? item.image : (item.image as StaticImageData)}
+                            alt={item.name}
+                            width={60}
+                            height={60}
+                            className="rounded-lg object-cover border"
+                          />
+                          <div className="flex-1">
+                            <p className="font-medium text-sm truncate">{item.name}</p>
+                            <p className="text-xs text-gray-500 mb-2">Unit Price: ${price.toFixed(2)}</p>
+                            <div className="flex items-center gap-2">
+                              <button onClick={() => dispatch(decrementQty(item.id))} className="border rounded w-6 h-6 flex items-center justify-center hover:bg-gray-100">
+                                <Minus className="w-4 h-4" />
+                              </button>
+                              <span className="text-sm font-medium">{item.quantity}</span>
+                              <button onClick={() => dispatch(incrementQty(item.id))} className="border rounded w-6 h-6 flex items-center justify-center hover:bg-gray-100">
+                                <Plus className="w-4 h-4" />
+                              </button>
+                            </div>
+                          </div>
+                          <div className="flex flex-col items-end justify-between gap-2">
+                            <div className="text-sm font-semibold text-gray-700 whitespace-nowrap">${total.toFixed(2)}</div>
+                            <button onClick={() => dispatch(removeFromCart(item.id))} className="text-red-500 hover:text-red-600 transition text-xs flex items-center gap-1">
+                              <Trash2 className="w-4 h-4" />
+                              Remove
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+                {cartItems.length > 0 && (
+                  <>
+                    <div className="mt-4 flex justify-between items-center text-base font-semibold border-t pt-4">
+                      <span>Subtotal:</span>
+                      <span>
+                        $
+                        {cartItems
+                          .reduce((sum, item) => {
+                            const price = parseFloat(item.price.replace(/[^0-9.]/g, ""));
+                            return sum + price * item.quantity;
+                          }, 0)
+                          .toFixed(2)}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setIsMobileCartOpen(false);
+                        setTimeout(() => router.push("/cart"), 300);
+                      }}
+                      className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 rounded-md transition"
+                    >
+                      Go to Cart
+                    </button>
+                  </>
+                )}
+              </SheetContent>
+            </Sheet>
 
             {/* Hamburger Menu */}
             <Sheet>
@@ -318,16 +317,33 @@ const Nav = () => {
               </SheetTrigger>
               <SheetContent side="left" className="w-3/4 sm:w-1/2">
                 <div className="space-y-4 mt-4">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-500"
-                    >
-                      {link.icon}
-                      {link.name}
-                    </Link>
-                  ))}
+                  {navLinks
+                    .filter((link) => link.name !== "Cart")
+                    .map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-500"
+                      >
+                        {link.icon}
+                        {link.name}
+                      </Link>
+                    ))}
+
+                  {/* 👇 Add mobile cart icon inside the hamburger menu */}
+                  <button
+                    onClick={() => setIsMobileCartOpen(true)}
+                    className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-500 w-full"
+                  >
+                    <ShoppingCart className="w-5 h-5" />
+                    Cart
+                    {cartCount > 0 && (
+                      <span className="ml-auto bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                        {cartCount}
+                      </span>
+                    )}
+                  </button>
+
                   <button
                     onClick={() => handleOpen("login")}
                     className="w-full border border-black px-4 py-2 rounded hover:bg-gray-100 transition"
@@ -337,6 +353,7 @@ const Nav = () => {
                 </div>
               </SheetContent>
             </Sheet>
+
           </div>
 
 
@@ -356,7 +373,7 @@ const Nav = () => {
         <DialogContent className="max-w-md">
           <DialogHeader>
             <DialogTitle className="text-center text-2xl capitalize">
-              {authView === "login" ? "Login" : "Sign Up"}
+              {authView === "login" ? "Login" : authView === "signup" ? "Sign Up" : ""}
             </DialogTitle>
           </DialogHeader>
 
