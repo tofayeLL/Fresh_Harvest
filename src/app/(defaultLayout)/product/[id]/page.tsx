@@ -10,6 +10,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import type { StaticImageData } from "next/image";
 import GuavaImg from "@/assets/BannerImg.jpg"; // replace with actual images if needed
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/features/cartSlice";
+
 
 interface Product {
   id: number;
@@ -19,6 +22,10 @@ interface Product {
   description: string;
   category?: string;
 }
+
+
+
+
 
 const products: Product[] = [
   {
@@ -61,8 +68,8 @@ const products: Product[] = [
     name: "Kiwi",
     image: GuavaImg,
     price: "$6.89/kg",
-    description:"Fresh and juicy pomegranates packed with nutrients.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    },
+    description: "Fresh and juicy pomegranates packed with nutrients.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
   {
     id: 7,
     name: "Eggplant",
@@ -80,6 +87,7 @@ const products: Product[] = [
 ];
 
 export default function ProductPage() {
+  const dispatch = useDispatch();
   const { id } = useParams();
   const productId = Number(id);
 
@@ -183,7 +191,23 @@ export default function ProductPage() {
                 <Heart className="w-4 h-4 mr-2" />
                 Save as favorite
               </Button>
-              <Button className="flex-1 bg-orange-500 hover:bg-orange-600">
+              {/*   <Button className="flex-1 bg-orange-500 hover:bg-orange-600">
+                Add to cart
+              </Button> */}
+
+              <Button
+                onClick={() =>
+                  dispatch(
+                    addToCart({
+                      id: product.id,
+                      name: product.name,
+                      image: product.image as string,
+                      price: product.price,
+                      quantity,
+                    })
+                  )
+                }
+              >
                 Add to cart
               </Button>
             </div>
@@ -191,41 +215,41 @@ export default function ProductPage() {
         </div>
 
         {/* Tabs Section */}
-         <div className="flex flex-col lg:flex-row justify-center items-center mb-6 space-y-4">
-        <Tabs defaultValue="description" className="mb-12 w-full">
-          <TabsList className="space-x-3 ">
-            <TabsTrigger className="data-[state=active]:bg-[#749b3f] data-[state=active]:text-white text-[#333333]  cursor-pointer border border-gray-200 rounded-lg py-[18px]"  value="description">Description</TabsTrigger>
-            <TabsTrigger className="data-[state=active]:bg-[#749b3f] data-[state=active]:text-white text-[#333333]  cursor-pointer border border-gray-200 rounded-lg py-[18px]" value="reviews">Reviews (1)</TabsTrigger>
-          </TabsList>
-          <TabsContent value="description" className="mt-6">
-            <p className="text-gray-600 leading-relaxed">
-              {product.description}
-            </p>
-          </TabsContent>
-          <TabsContent value="reviews" className="mt-6">
-            <div className="space-y-4">
-              <div className="border-b pb-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="flex">
-                    {[1, 2, 3, 4, 5].map((star) => (
-                      <Star
-                        key={star}
-                        className="w-4 h-4 fill-orange-400 text-orange-400"
-                      />
-                    ))}
+        <div className="flex flex-col lg:flex-row justify-center items-center mb-6 space-y-4">
+          <Tabs defaultValue="description" className="mb-12 w-full">
+            <TabsList className="space-x-3 ">
+              <TabsTrigger className="data-[state=active]:bg-[#749b3f] data-[state=active]:text-white text-[#333333]  cursor-pointer border border-gray-200 rounded-lg py-[18px]" value="description">Description</TabsTrigger>
+              <TabsTrigger className="data-[state=active]:bg-[#749b3f] data-[state=active]:text-white text-[#333333]  cursor-pointer border border-gray-200 rounded-lg py-[18px]" value="reviews">Reviews (1)</TabsTrigger>
+            </TabsList>
+            <TabsContent value="description" className="mt-6">
+              <p className="text-gray-600 leading-relaxed">
+                {product.description}
+              </p>
+            </TabsContent>
+            <TabsContent value="reviews" className="mt-6">
+              <div className="space-y-4">
+                <div className="border-b pb-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="flex">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Star
+                          key={star}
+                          className="w-4 h-4 fill-orange-400 text-orange-400"
+                        />
+                      ))}
+                    </div>
+                    <span className="font-medium">John D.</span>
                   </div>
-                  <span className="font-medium">John D.</span>
+                  <p className="text-gray-600 text-sm">
+                    Excellent quality {product.name}! Fresh and delicious. Will
+                    definitely order again.
+                  </p>
                 </div>
-                <p className="text-gray-600 text-sm">
-                  Excellent quality {product.name}! Fresh and delicious. Will
-                  definitely order again.
-                </p>
               </div>
-            </div>
-          </TabsContent>
-        </Tabs>
+            </TabsContent>
+          </Tabs>
         </div>
-        
+
 
         {/* Related Products */}
         <div className=" my-20">

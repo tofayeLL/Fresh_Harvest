@@ -13,6 +13,8 @@ const Banner = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
+
+      
     >
       {/* banner left */}
        <div className="">

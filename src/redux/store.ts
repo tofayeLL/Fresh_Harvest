@@ -28,8 +28,9 @@ const persistConfig = {
     typeof window !== "undefined" && window.localStorage
       ? storage
       : noopStorage,
-  whitelist: ["auth"],
+  whitelist: ["auth", "cart"], 
 };
+
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
