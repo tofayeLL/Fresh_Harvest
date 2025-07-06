@@ -54,7 +54,7 @@ const SeasonalFruit = () => {
                         <p className="text-4xl font-bold text-orange-500 mb-8 lg:px-0 px-16">
                           <span className="text-gray-800">Discount up to</span> <span className="text-4xl">80% OFF</span>
                         </p>
-                        <div className="flex space-x-6 mb-8">
+                        <div className="flex space-x-6 mb-8 flex-wrap ">
                           {Object.entries(timeLeft).map(([unit, val]) => (
                             <div key={unit} className="text-center">
                               <div className="bg-white rounded-lg p-4 shadow-lg min-w-[80px] min-h-[80px]">

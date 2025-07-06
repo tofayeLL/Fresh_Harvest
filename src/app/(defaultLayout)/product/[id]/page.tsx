@@ -89,7 +89,7 @@ const products: Product[] = [
 ];
 
 export default function ProductPage() {
-  
+
 
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -199,23 +199,23 @@ export default function ProductPage() {
                 Add to cart
               </Button> */}
 
-             <Button
-  className="flex-1"
-  onClick={() => {
-    dispatch(
-      addToCart({
-        id: product.id,
-        name: product.name,
-        image: product.image as string,
-        price: product.price,
-        quantity,
-      })
-    );
-    toast.success(`${product.name} (${quantity}kg) added to cart.`);
-  }}
->
-  Add to cart
-</Button>
+              <Button
+                className="flex-1"
+                onClick={() => {
+                  dispatch(
+                    addToCart({
+                      id: product.id,
+                      name: product.name,
+                      image: product.image as string,
+                      price: product.price,
+                      quantity,
+                    })
+                  );
+                  toast.success(`${product.name} (${quantity}kg) added to cart.`);
+                }}
+              >
+                Add to cart
+              </Button>
 
             </div>
           </div>

@@ -7,6 +7,7 @@ const rootReducer = combineReducers({
   [baseApi.reducerPath]: baseApi.reducer,
   auth: authReducer,
   cart: cartReducer,
+  
 });
 
 export default rootReducer;

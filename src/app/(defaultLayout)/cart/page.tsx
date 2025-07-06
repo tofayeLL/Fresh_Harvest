@@ -36,7 +36,7 @@ const CartPage = () => {
           {cartItems.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col sm:flex-row items-start sm:items-center gap-6 border-b pb-6"
+              className="flex flex-row items-start sm:items-center gap-6 border-b pb-6"
             >
               <Image
                 src={

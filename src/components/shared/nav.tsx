@@ -6,19 +6,14 @@ import { useState } from "react";
 import { Leaf, Menu, ShoppingCart, Heart, Minus, Plus, Trash2 } from "lucide-react";
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import LoginForm from "../home/LoginForm";
-import SignupForm from "../home/SignupForm";
+
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import Image, { StaticImageData } from "next/image";
 import { decrementQty, incrementQty, removeFromCart } from "@/redux/features/cartSlice";
 import { toast } from "sonner";
+import CombineModal from "../home/CombineMOdal";
+
 
 
 
@@ -50,14 +45,17 @@ const Nav = () => {
     { name: "Cart", href: "/cart", icon: <ShoppingCart className="w-5 h-5" /> },
   ];
 
+
   const handleOpen = (type: "login" | "signup") => {
     setAuthView(type);
     setShowModal(true);
   };
 
+  
+
   return (
-    <header>
-      <div className="fixed top-0 left-0 w-full z-50 bg-[#fcfcf2] py-2 lg:px-10">
+    <header >
+      <div className="fixed top-0 left-0 w-full z-50 bg-[#fcfcf2] py-2 lg:px-10   ">
 
 
         <div className="flex justify-between items-center h-16 px-4">
@@ -69,6 +67,8 @@ const Nav = () => {
               <Link href="/">Fresh Harvest</Link>
             </div>
           </div>
+
+
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 items-center">
@@ -85,7 +85,6 @@ const Nav = () => {
               </Link>
             ))}
           </div>
-
 
 
 
@@ -137,8 +136,8 @@ const Nav = () => {
                           <Image
                             src={typeof item.image === "string" ? item.image : (item.image as StaticImageData)}
                             alt={item.name}
-                            width={60}
-                            height={60}
+                            width={100}
+                            height={100}
                             className="rounded-lg object-cover border"
                           />
                           <div className="flex-1">
@@ -256,8 +255,8 @@ const Nav = () => {
                           <Image
                             src={typeof item.image === "string" ? item.image : (item.image as StaticImageData)}
                             alt={item.name}
-                            width={60}
-                            height={60}
+                            width={100}
+                            height={100}
                             className="rounded-lg object-cover border"
                           />
                           <div className="flex-1">
@@ -370,8 +369,6 @@ const Nav = () => {
 
 
 
-
-
         </div>
 
 
@@ -381,22 +378,12 @@ const Nav = () => {
 
 
       {/* Combined Login/Signup Modal */}
-      <Dialog open={showModal} onOpenChange={setShowModal}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle className="text-center text-2xl capitalize">
-              {authView === "login" ? "Login" : authView === "signup" ? "Sign Up" : ""}
-            </DialogTitle>
-          </DialogHeader>
-
-          {authView === "login" ? (
-            <LoginForm switchToSignup={() => setAuthView("signup")} />
-          ) : (
-            <SignupForm switchToLogin={() => setAuthView("login")} />
-          )}
-        </DialogContent>
-      </Dialog>
-
+      <CombineModal
+        open={showModal}
+        setOpen={setShowModal}
+        authView={authView}
+        setAuthView={setAuthView}
+      />
 
 
     </header>

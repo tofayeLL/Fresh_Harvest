@@ -60,7 +60,7 @@ const Banner = () => {
         
 
           {/* Offer Card */}
-          <div className="  lg:translate-x-40 translate-x-10 ">
+          <div className="  lg:translate-x-40  ">
             <div className="flex items-center w-[80%] lg:h-[80%] h-[24vh]  bg-gray-200 border border-gray-300 shadow-2xl rounded-2xl p-4 ">
               <div className="w-[50%]  flex flex-col justify-start items-start ">
                 <p className="text-sm text-[#176e38] font-semibold mb-1">Special Offer</p>
