@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 import Image, { StaticImageData } from "next/image";
 import { decrementQty, incrementQty, removeFromCart } from "@/redux/features/cartSlice";
+import { toast } from "sonner";
 
 
 
@@ -167,12 +168,16 @@ const Nav = () => {
                               ${total.toFixed(2)}
                             </div>
                             <button
-                              onClick={() => dispatch(removeFromCart(item.id))}
+                              onClick={() => {
+                                dispatch(removeFromCart(item.id));
+                                toast.error(`${item.name} removed from cart`);
+                              }}
                               className="text-red-500 hover:text-red-600 transition text-xs flex items-center gap-1"
                             >
                               <Trash2 className="w-4 h-4" />
                               Remove
                             </button>
+
                           </div>
                         </div>
                       );
@@ -270,10 +275,17 @@ const Nav = () => {
                           </div>
                           <div className="flex flex-col items-end justify-between gap-2">
                             <div className="text-sm font-semibold text-gray-700 whitespace-nowrap">${total.toFixed(2)}</div>
-                            <button onClick={() => dispatch(removeFromCart(item.id))} className="text-red-500 hover:text-red-600 transition text-xs flex items-center gap-1">
+                            <button
+                              onClick={() => {
+                                dispatch(removeFromCart(item.id));
+                                toast.error(`${item.name} removed from cart`);
+                              }}
+                              className="text-red-500 hover:text-red-600 transition text-xs flex items-center gap-1"
+                            >
                               <Trash2 className="w-4 h-4" />
                               Remove
                             </button>
+
                           </div>
                         </div>
                       );
@@ -299,7 +311,7 @@ const Nav = () => {
                         setIsMobileCartOpen(false);
                         setTimeout(() => router.push("/cart"), 300);
                       }}
-                      className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 rounded-md transition"
+                      className="mt-4 w-full bg-black text-white font-medium py-2 rounded-md transition"
                     >
                       Go to Cart
                     </button>
@@ -330,7 +342,7 @@ const Nav = () => {
                       </Link>
                     ))}
 
-                  {/* 👇 Add mobile cart icon inside the hamburger menu */}
+                  {/*  Add mobile cart icon inside the hamburger menu */}
                   <button
                     onClick={() => setIsMobileCartOpen(true)}
                     className="flex items-center gap-2 font-medium text-gray-700 hover:text-blue-500 w-full"

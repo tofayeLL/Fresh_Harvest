@@ -12,6 +12,8 @@ import type { StaticImageData } from "next/image";
 import GuavaImg from "@/assets/BannerImg.jpg"; // replace with actual images if needed
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/redux/features/cartSlice";
+import { toast } from "sonner";
+
 
 
 interface Product {
@@ -87,6 +89,8 @@ const products: Product[] = [
 ];
 
 export default function ProductPage() {
+  
+
   const dispatch = useDispatch();
   const { id } = useParams();
   const productId = Number(id);
@@ -115,7 +119,7 @@ export default function ProductPage() {
       <div className="max-w-7xl mx-auto px-4 mt-28">
         {/* Main Section */}
         <div className="grid md:grid-cols-2  mb-12">
-          <div className="relative lg:w-[500px] lg:h-[350px] h-[250px]  rounded-2xl overflow-hidden">
+          <div className="relative lg:w-[500px] lg:h-[380px] h-[250px]  rounded-2xl overflow-hidden">
             <Image
               src={product.image}
               alt={product.name}
@@ -195,21 +199,24 @@ export default function ProductPage() {
                 Add to cart
               </Button> */}
 
-              <Button
-                onClick={() =>
-                  dispatch(
-                    addToCart({
-                      id: product.id,
-                      name: product.name,
-                      image: product.image as string,
-                      price: product.price,
-                      quantity,
-                    })
-                  )
-                }
-              >
-                Add to cart
-              </Button>
+             <Button
+  className="flex-1"
+  onClick={() => {
+    dispatch(
+      addToCart({
+        id: product.id,
+        name: product.name,
+        image: product.image as string,
+        price: product.price,
+        quantity,
+      })
+    );
+    toast.success(`${product.name} (${quantity}kg) added to cart.`);
+  }}
+>
+  Add to cart
+</Button>
+
             </div>
           </div>
         </div>
