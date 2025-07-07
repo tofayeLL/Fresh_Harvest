@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className} antialiased`}>
-        <Toaster position="top-right" richColors />
+        <Toaster position="bottom-right" richColors />
         <NextAuthSessionProvider>
           <ReduxProvider>{children}</ReduxProvider>
         </NextAuthSessionProvider>

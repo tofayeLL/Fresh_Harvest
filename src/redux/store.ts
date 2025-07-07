@@ -20,7 +20,7 @@ const noopStorage = {
   removeItem: (_key: string) => Promise.resolve(),
 };
 
-export default noopStorage;
+/* export default noopStorage; */
 
 const persistConfig = {
   key: "root",

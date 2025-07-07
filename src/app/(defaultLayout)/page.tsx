@@ -6,6 +6,7 @@ import HervastBlog from "@/components/home/HervastBlog";
 import OurProducts from "@/components/home/ourProducts";
 import SeasonalFruit from "@/components/home/SeasonalFruit";
 import Testimonial from "@/components/home/testimonial";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 
 export default function FreshHarvestWebsite() {
   return (
@@ -26,6 +27,9 @@ export default function FreshHarvestWebsite() {
       
       {/* harvest log */}
       <HervastBlog />
+
+
+      <TestimonialsSection></TestimonialsSection>
 
     </div>
   );
